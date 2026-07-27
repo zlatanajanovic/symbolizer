@@ -1,0 +1,1 @@
+The goal is: the blue block should be on the green block, the green block should be on the red block, the red block should be on the yellow block.

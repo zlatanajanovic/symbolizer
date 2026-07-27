@@ -1,0 +1,22 @@
+.git
+.env
+# runtime VLM debug logs (written to CWD by run_eval_vlm; never ship)
+requests.jsonl
+responses.json
+responses_content.json
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+results/
+# Runtime experiment outputs (recreated on demand by the experiment scripts)
+experiments/results/generated/
+
+# Internal working notes (never ship)
+AGENT_HANDOFF.md
+HANDOFF_FOR_OTHER_SESSION.md

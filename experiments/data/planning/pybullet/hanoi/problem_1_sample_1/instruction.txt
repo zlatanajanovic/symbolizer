@@ -1,0 +1,1 @@
+Move the discs so that: pink disk1 on peg3, blue disk1 on pink disk1, green disk1 on blue disk1.

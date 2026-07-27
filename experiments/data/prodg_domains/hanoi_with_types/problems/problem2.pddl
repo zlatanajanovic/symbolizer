@@ -1,0 +1,26 @@
+(define (problem problem_20_problem_6_state_0_domain_hanoi_2)
+  (:domain hanoi_with_types)
+  (:objects
+    orange_disk1 purple_disk1 blue_disk1 peg1 peg2 peg3 - element
+    )
+  (:init
+    (on blue_disk1 purple_disk1)
+    (on purple_disk1 orange_disk1)
+    (clear peg2)
+    (clear peg3)
+    (clear blue_disk1)
+    (smaller peg1 orange_disk1)
+    (smaller peg1 purple_disk1)
+    (smaller peg1 blue_disk1)
+    (smaller peg2 orange_disk1)
+    (smaller peg2 purple_disk1)
+    (smaller peg2 blue_disk1)
+    (smaller peg3 orange_disk1)
+    (smaller peg3 purple_disk1)
+    (smaller peg3 blue_disk1)
+    (smaller orange_disk1 purple_disk1)
+    (smaller orange_disk1 blue_disk1)
+    (smaller purple_disk1 blue_disk1)
+    )
+  (:goal
+    (and (on orange_disk1 peg3) (on purple_disk1 orange_disk1) (on blue_disk1 purple_disk1) (clear blue_disk1) )))

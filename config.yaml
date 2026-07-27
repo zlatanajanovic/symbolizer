@@ -1,0 +1,103 @@
+# ============================================================================
+# GENERATION CONFIG (config.yaml)
+# ============================================================================
+# This configuration controls the VLM-based PDDL generation pipeline used by:
+#   - run_eval_on_dataset.py: Main generation script that queries VLMs
+#   - run_full_pipeline.py: Orchestrator that calls generation as first step
+#   - pddl_from_json.py: Reads output files to create PDDL problems
+#
+# WORKFLOW:
+# 1. Load dataset with planning domains, images, and ground-truth PDDL
+# 2. For each sampled state, send images to VLM to extract:
+#    a) Objects (with types/names) -> objects_full_responses_path
+#    b) Predicates (spatial relationships) -> atoms_full_responses_path  
+#    c) Goals (from natural language) -> goals_full_responses_path
+# 3. Generate multiple answers per sample and aggregate using thresholds
+# 4. Evaluate precision/recall/F1 against ground truth
+# 5. Convert JSON outputs to PDDL problem files
+# ============================================================================
+
+# ----------------------------------------------------------------------------
+# OpenAI/VLM API Settings
+# ----------------------------------------------------------------------------
+# Cost tracking for API usage (used in run_eval_on_dataset.py)
+model_price_million_tokens: 1.25          # Price per 1M input tokens (USD)
+model_price_million_tokens_output: 5      # Price per 1M output tokens (USD)
+
+# Environment file containing API keys and model selection
+# Required keys: OPENAI_API_KEY, MODEL_NAME, MODEL_TO_USE (openai/mistral)
+#                MISTRAL_API_KEY (if using Mistral)
+env_file: "./.env"
+
+# Maximum tokens in VLM responses (prevent truncation of large scenes)
+max_tokens: 64000
+
+# Image quality sent to VLM API (false = high quality, true = low quality)
+# High quality captures finer spatial details needed for predicate extraction
+detail_level_low: false
+
+# ----------------------------------------------------------------------------
+# Dataset and Output Paths
+# ----------------------------------------------------------------------------
+# Input dataset with planning problems, images, and ground-truth PDDL
+# Format: JSON with "problems" array containing:
+#   - domain_name: Planning domain (blocksworld, logistics, etc.)
+#   - domain_file: Path to domain.pddl
+#   - problem_file: Path to problem.pddl  
+#   - sampled_state: Contains images, ground-truth objects, atoms, goals
+#   - nlg_instruction: Natural language goal description
+dataset_path: "./experiments/data/datasets/vilaln_data.json"
+
+# Output directory for all generated files:
+#   - {objects|atoms|goals}_full_responses_gpt_v.jsonl: VLM predictions
+#   - problems/{domain}/problems/*.pddl: Generated PDDL files
+#   - pipeline_summary.json: Aggregated metrics (if using run_full_pipeline)
+output_folder: "./results/gpt_v/ViLaInOwnResults/"
+
+# Alternative dataset options (uncomment to use):
+# dataset_path: "./experiments/data/datasets/pddlGYM_dataset_grounding.json"
+# output_folder: "./results/gpt_v/pddlgym_own_results/"
+
+# ----------------------------------------------------------------------------
+# Sampling and Few-Shot Configuration
+# ----------------------------------------------------------------------------
+# Number of in-context examples shown to VLM (few-shot prompting)
+# Higher values improve accuracy but increase token usage
+num_examples: 5
+
+# Number of test problems to sample from dataset (max per domain)
+# Set to -1 or large value to process entire dataset
+num_tests: 150
+
+# Domain filter: "all" processes all domains, or specify one:
+#   "blocksworld", "logistics", "blocks_operator_actions", etc.
+domain_name: "all"
+
+# Print detailed logs during generation (recommended for debugging)
+verbose: true
+
+# Batch size for parallel VLM requests (adjust based on API rate limits)
+batch_size: 100
+
+# ----------------------------------------------------------------------------
+# Output File Paths (relative to output_folder)
+# ----------------------------------------------------------------------------
+# JSONL files storing raw VLM responses with evaluation metrics
+# Each line contains: {domain, problem_file, predicted, ground_truth, metrics}
+
+# Objects: Detected entities with types (e.g., [{"name": "block_a", "type": "block"}])
+objects_full_responses_path: "objects_full_responses_gpt_v.jsonl"
+
+# Atoms/Predicates: Spatial/logical relationships (e.g., "(on block_a table)")
+atoms_full_responses_path: "atoms_full_responses_gpt_v.jsonl"
+
+# Goals: Desired final state predicates (e.g., "(on block_a block_b)")
+goals_full_responses_path: "goals_full_responses_gpt_v.jsonl"
+
+# ----------------------------------------------------------------------------
+# Multi-Answer Aggregation
+# ----------------------------------------------------------------------------
+# Number of independent VLM queries per sample (for self-consistency)
+# Higher values enable majority voting and confidence thresholding
+# Default: 1 (single answer), common values: 3, 5, 10
+num_answers_per_sample: 1

@@ -1,0 +1,30 @@
+# Optional image variant that adds the dependencies needed to run the external
+# ViPlan benchmark (github.com/merlerm/ViPlan) blocksworld simulator and the
+# VLM-planning entry points. Build on top of the base release image.
+#
+#   docker build -t symbolizer-release:latest .
+#   docker build -f Dockerfile.viplan -t symbolizer-viplan:latest .
+#
+# Then mount a ViPlan checkout and set VIPLAN_ROOT:
+#   git clone https://github.com/merlerm/ViPlan.git /path/to/ViPlan
+#   docker run --rm -e VIPLAN_ROOT=/viplan -v /path/to/ViPlan:/viplan ... symbolizer-viplan:latest
+#
+# Blender (setup_blocksworld.sh) is only required to RENDER ViPlan images; the
+# symbolic blocksworld simulator and symbolic planning do not need it.
+FROM symbolizer-release:latest
+
+# CPU torch is enough for the symbolic path (viplan.code_helpers imports torch).
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu \
+ && pip install --no-cache-dir mloggers fasteners matplotlib
+
+# System libraries required for headless Blender 3.0 CYCLES rendering of the
+# ViPlan Blocksworld images (CPU rendering; no GPU/CUDA needed).
+RUN apt-get update && apt-get install -y --no-install-recommends \
+        wget libxrender1 libxi6 libxxf86vm1 libxfixes3 libxkbcommon0 \
+        libgl1 libsm6 libice6 libxext6 \
+ && rm -rf /var/lib/apt/lists/*
+
+# Blender itself is installed into the ViPlan checkout by setup_blocksworld.sh and
+# reached at runtime via VIPLAN_ROOT (mounted), so it is not baked into the image:
+#   (cd $VIPLAN_ROOT && bash setup_blocksworld.sh)
+# CPU rendering is the default (VIPLAN_USE_GPU_RENDERING=0).

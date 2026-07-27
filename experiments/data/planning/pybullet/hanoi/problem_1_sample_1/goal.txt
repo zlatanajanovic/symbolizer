@@ -1,0 +1,1 @@
+(:goal (and (on pink_disk1 peg3) (on blue_disk1 pink_disk1) (on green_disk1 blue_disk1)))

@@ -1,0 +1,4 @@
+(:goal (and
+	(on blue green)
+	(on green red)
+	(on red yellow)))

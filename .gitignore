@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+dist/
+build/
+*.so
+
+# Environment
+.env
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Results — code-only release: result files are NOT shipped.
+# experiments/results/ holds only runtime outputs (recreated by the experiment scripts).
+experiment_output/
+experiments/results/
+
+# Internal rebuttal/agent working notes — kept LOCALLY, never shipped in the release.
+# These leak author identity and contain reconstruction narratives; untracked via
+# `git rm --cached` (the local files remain on disk, they are just not part of the release).
+/AGENT_HANDOFF.md
+/HANDOFF_FOR_OTHER_SESSION.md
+experiments/results/ABLATION_PLAN.md
+experiments/results/RESULTS_AND_RERUN_MAP.md
+experiments/results/paper_result_provenance.md
+experiments/results/paper_result_provenance.csv
+experiments/results/reproduction_ceiling.csv
+experiments/results/incontext_overlap_analysis.py
+experiments/results/incontext_overlap_analysis.md
+experiments/results/incontext_overlap_per_problem.csv
+experiments/results/incontext_seen_new_table.py
+experiments/results/incontext_seen_new_table.md
+experiments/results/incontext_seen_new_by_domain.md
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Secrets
+secrets/
+*.key
+*.pem
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Logs
+*.log
+logs/
+
+# stray eval logs written to CWD
+requests.jsonl
+responses.json
+responses_content.json

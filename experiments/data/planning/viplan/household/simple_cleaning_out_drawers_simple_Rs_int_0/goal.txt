@@ -1,0 +1,5 @@
+(:goal 
+        (and 
+            (ontop bowl_1 sink_1) 
+        )
+    )

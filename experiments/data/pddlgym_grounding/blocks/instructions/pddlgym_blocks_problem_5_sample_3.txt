@@ -1,0 +1,1 @@
+The goal is: the grey block should be on the blue block, the blue block should be on the green block, the yellow block should be on the red block, the yellow block should have nothing on top of it, the grey block should have nothing on top of it.

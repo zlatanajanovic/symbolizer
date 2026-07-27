@@ -1,0 +1,4 @@
+(:goal (and
+	(on blue_disk right_peg)
+	(on green_disk blue_disk)
+	(on red_disk green_disk)))

@@ -1,0 +1,18 @@
+(:goal
+    (and
+      (on G P)
+      (on R O)
+
+      (clear G)
+      (clear Y)
+      (clear B)
+      (clear R)
+
+      (inColumn P C3)
+      (inColumn O C2)
+      (inColumn G C3)
+      (inColumn Y C1)
+      (inColumn B C4)
+      (inColumn R C2)
+    )
+  )

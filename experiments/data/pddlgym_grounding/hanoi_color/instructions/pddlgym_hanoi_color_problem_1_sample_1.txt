@@ -1,0 +1,1 @@
+Move the discs so that: blue disk on right peg, green disk on blue disk, red disk on green disk.

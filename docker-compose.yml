@@ -1,0 +1,32 @@
+services:
+  symbolizer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: symbolizer-release:latest
+    container_name: symbolizer_release
+    working_dir: /workspace
+    volumes:
+      - ./:/workspace
+      # Mount a service-account JSON for Vertex AI if you use Gemini:
+      # - /path/to/vertex-sa.json:/creds/vertex.json:ro
+    environment:
+      PYTHONUNBUFFERED: "1"
+      # Provider: openai | mistral | gemini | selfhosted
+      MODEL_TO_USE: ${MODEL_TO_USE:-gemini}
+      MODEL_NAME: ${MODEL_NAME:-gemini-3.1-flash-lite-preview}
+      # OpenAI / vLLM / any OpenAI-compatible server:
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-}
+      # Mistral:
+      MISTRAL_API_KEY: ${MISTRAL_API_KEY:-}
+      # Gemini (Vertex AI):
+      GOOGLE_API_KEY: ${GOOGLE_API_KEY:-}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_USE_VERTEXAI: ${GEMINI_USE_VERTEXAI:-true}
+      PROJECT: ${PROJECT:-}
+      LOCATION: ${LOCATION:-global}
+      GOOGLE_APPLICATION_CREDENTIALS: ${GOOGLE_APPLICATION_CREDENTIALS:-}
+    command: bash -lc "tail -f /dev/null"
+    tty: true
+    stdin_open: true

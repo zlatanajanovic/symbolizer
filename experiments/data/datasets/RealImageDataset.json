@@ -1,0 +1,2287 @@
+{
+    "problems": [
+        {
+            "problem_name": "blocksworld_real10",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem10.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem10.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem10.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"red\"},\"y\":{\"name\":\"yellow\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"blue\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"yellow\",\"type\":\"block\"},{\"name\":\"red\",\"type\":\"block\"},{\"name\":\"blue\",\"type\":\"block\"},{\"name\":\"black\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"blue\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"blue\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Handfull\"},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"black\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"black\"}},{\"predicate_type\":\"Holding\",\"x\":{\"name\":\"red\"}}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "yellow",
+                                            "red",
+                                            "blue",
+                                            "black"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        },
+        {
+            "problem_name": "blocksworld_real4",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem4.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem4.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem4.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"grey\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"yellow\",\"type\":\"block\"},{\"name\":\"grey\",\"type\":\"block\"},{\"name\":\"blue\",\"type\":\"block\"},{\"name\":\"red\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"grey\"},\"y\":{\"name\":\"red\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Handfull\"},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Holding\",\"x\":{\"name\":\"blue\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"grey\"}}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "yellow",
+                                            "grey",
+                                            "blue",
+                                            "red"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        },
+        {
+            "problem_name": "blocksworld_real9",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem9.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem9.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem9.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"black\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"black\"},\"y\":{\"name\":\"red\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"yellow\",\"type\":\"block\"},{\"name\":\"red\",\"type\":\"block\"},{\"name\":\"black\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"black\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"black\"}},{\"predicate_type\":\"Handempty\"}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "yellow",
+                                            "red",
+                                            "black"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        },
+        {
+            "problem_name": "blocksworld_real6",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem6.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem6.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem6.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"grey\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"white\",\"type\":\"block\"},{\"name\":\"red\",\"type\":\"block\"},{\"name\":\"grey\",\"type\":\"block\"},{\"name\":\"yellow\",\"type\":\"block\"},{\"name\":\"blue\",\"type\":\"block\"},{\"name\":\"black\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"white\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"grey\"},\"y\":{\"name\":\"red\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"white\"},\"y\":{\"name\":\"blue\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"black\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"grey\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"blue\"},\"y\":{\"name\":\"black\"}},{\"predicate_type\":\"Handempty\"}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "white",
+                                            "red",
+                                            "grey",
+                                            "yellow",
+                                            "blue",
+                                            "black"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        },
+        {
+            "problem_name": "blocksworld_real3",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem3.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem3.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem3.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"red\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"red\"},\"y\":{\"name\":\"grey\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"grey\"},\"y\":{\"name\":\"blue\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"yellow\",\"type\":\"block\"},{\"name\":\"grey\",\"type\":\"block\"},{\"name\":\"blue\",\"type\":\"block\"},{\"name\":\"red\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"blue\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"grey\"},\"y\":{\"name\":\"red\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"blue\"},\"y\":{\"name\":\"grey\"}},{\"predicate_type\":\"Handempty\"}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "yellow",
+                                            "grey",
+                                            "blue",
+                                            "red"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        },
+        {
+            "problem_name": "blocksworld_real1",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem1.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem1.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem1.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"blue\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"blue\"},\"y\":{\"name\":\"grey\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"grey\"},\"y\":{\"name\":\"red\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"red\",\"type\":\"block\"},{\"name\":\"grey\",\"type\":\"block\"},{\"name\":\"yellow\",\"type\":\"block\"},{\"name\":\"blue\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"blue\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"blue\"},\"y\":{\"name\":\"grey\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"grey\"}},{\"predicate_type\":\"Handempty\"}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "red",
+                                            "grey",
+                                            "yellow",
+                                            "blue"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        },
+        {
+            "problem_name": "blocksworld_real8",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem8.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem8.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem8.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"black\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"red\",\"type\":\"block\"},{\"name\":\"grey\",\"type\":\"block\"},{\"name\":\"yellow\",\"type\":\"block\"},{\"name\":\"blue\",\"type\":\"block\"},{\"name\":\"black\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"blue\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"grey\"},\"y\":{\"name\":\"red\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"black\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"grey\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"blue\"},\"y\":{\"name\":\"black\"}},{\"predicate_type\":\"Handempty\"}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "red",
+                                            "grey",
+                                            "yellow",
+                                            "blue",
+                                            "black"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        },
+        {
+            "problem_name": "blocksworld_real2",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem2.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem2.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem2.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"white\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"white\"},\"y\":{\"name\":\"grey\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"grey\"},\"y\":{\"name\":\"red\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"yellow\",\"type\":\"block\"},{\"name\":\"grey\",\"type\":\"block\"},{\"name\":\"white\",\"type\":\"block\"},{\"name\":\"red\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"white\"},\"y\":{\"name\":\"grey\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"white\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"grey\"}},{\"predicate_type\":\"Handempty\"}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "yellow",
+                                            "grey",
+                                            "white",
+                                            "red"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        },
+        {
+            "problem_name": "blocksworld_real11",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem11.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem11.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem11.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"white\"},\"y\":{\"name\":\"blue\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"blue\"},\"y\":{\"name\":\"red\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"blue\",\"type\":\"block\"},{\"name\":\"white\",\"type\":\"block\"},{\"name\":\"red\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"blue\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"white\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"white\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"blue\"},\"y\":{\"name\":\"red\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"Handempty\"}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "blue",
+                                            "white",
+                                            "red"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        },
+        {
+            "problem_name": "blocksworld_real12",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem12.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem12.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem12.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"white\"},\"y\":{\"name\":\"black\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"black\"},\"y\":{\"name\":\"yellow\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"blue\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"yellow\",\"type\":\"block\"},{\"name\":\"white\",\"type\":\"block\"},{\"name\":\"blue\",\"type\":\"block\"},{\"name\":\"black\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"blue\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"black\"},\"y\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Handfull\"},{\"predicate_type\":\"Holding\",\"x\":{\"name\":\"white\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"black\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"blue\"}}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "yellow",
+                                            "white",
+                                            "blue",
+                                            "black"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        },
+        {
+            "problem_name": "blocksworld_real5",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem5.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem5.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem5.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"blue\"},\"y\":{\"name\":\"yellow\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"white\",\"type\":\"block\"},{\"name\":\"red\",\"type\":\"block\"},{\"name\":\"grey\",\"type\":\"block\"},{\"name\":\"yellow\",\"type\":\"block\"},{\"name\":\"blue\",\"type\":\"block\"},{\"name\":\"black\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"white\"},\"y\":{\"name\":\"black\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"white\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"grey\"},\"y\":{\"name\":\"red\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Handfull\"},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"Holding\",\"x\":{\"name\":\"blue\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"grey\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"black\"}}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "white",
+                                            "red",
+                                            "grey",
+                                            "yellow",
+                                            "blue",
+                                            "black"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        },
+        {
+            "problem_name": "blocksworld_real7",
+            "domain_name": "blocksworld_real",
+            "domain_file": "./experiments/data/real/blocksworld_real/domain.pddl",
+            "problem_file": "./experiments/data/real/blocksworld_real/problems/problem7.pddl",
+            "states": [
+                {
+                    "id": 0,
+                    "image_path": "./experiments/data/real/blocksworld_real/observations/problem7.jpeg",
+                    "goal_instruction_path": "./experiments/data/real/blocksworld_real/problem7.txt",
+                    "goal_predicates": "{\"grounded_predicates\":[{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"yellow\"}}]}",
+                    "pickle_path_observation": "",
+                    "all_objects": "{\"objects\":[{\"name\":\"yellow\",\"type\":\"block\"},{\"name\":\"grey\",\"type\":\"block\"},{\"name\":\"blue\",\"type\":\"block\"},{\"name\":\"red\",\"type\":\"block\"}]}",
+                    "atoms": "{\"grounded_predicates\":[{\"predicate_type\":\"On\",\"x\":{\"name\":\"grey\"},\"y\":{\"name\":\"red\"}},{\"predicate_type\":\"Ontable\",\"x\":{\"name\":\"red\"}},{\"predicate_type\":\"Clear\",\"x\":{\"name\":\"yellow\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"yellow\"},\"y\":{\"name\":\"blue\"}},{\"predicate_type\":\"On\",\"x\":{\"name\":\"blue\"},\"y\":{\"name\":\"grey\"}},{\"predicate_type\":\"Handempty\"}]}",
+                    "atoms_schema": {
+                        "$defs": {
+                            "Block": {
+                                "properties": {
+                                    "name": {
+                                        "enum": [
+                                            "yellow",
+                                            "grey",
+                                            "blue",
+                                            "red"
+                                        ],
+                                        "title": "Name",
+                                        "type": "string"
+                                    }
+                                },
+                                "required": [
+                                    "name"
+                                ],
+                                "title": "Block",
+                                "type": "object"
+                            },
+                            "Clear": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Clear",
+                                        "default": "Clear",
+                                        "enum": [
+                                            "Clear"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Clear",
+                                "type": "object"
+                            },
+                            "Handempty": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handempty",
+                                        "default": "Handempty",
+                                        "enum": [
+                                            "Handempty"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handempty",
+                                "type": "object"
+                            },
+                            "Handfull": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Handfull",
+                                        "default": "Handfull",
+                                        "enum": [
+                                            "Handfull"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    }
+                                },
+                                "title": "Handfull",
+                                "type": "object"
+                            },
+                            "Holding": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Holding",
+                                        "default": "Holding",
+                                        "enum": [
+                                            "Holding"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Holding",
+                                "type": "object"
+                            },
+                            "On": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "On",
+                                        "default": "On",
+                                        "enum": [
+                                            "On"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    },
+                                    "y": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x",
+                                    "y"
+                                ],
+                                "title": "On",
+                                "type": "object"
+                            },
+                            "Ontable": {
+                                "properties": {
+                                    "predicate_type": {
+                                        "const": "Ontable",
+                                        "default": "Ontable",
+                                        "enum": [
+                                            "Ontable"
+                                        ],
+                                        "title": "Predicate Type",
+                                        "type": "string"
+                                    },
+                                    "x": {
+                                        "$ref": "#/$defs/Block"
+                                    }
+                                },
+                                "required": [
+                                    "x"
+                                ],
+                                "title": "Ontable",
+                                "type": "object"
+                            }
+                        },
+                        "properties": {
+                            "grounded_predicates": {
+                                "items": {
+                                    "anyOf": [
+                                        {
+                                            "$ref": "#/$defs/Clear"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Ontable"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handfull"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Holding"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/Handempty"
+                                        },
+                                        {
+                                            "$ref": "#/$defs/On"
+                                        }
+                                    ]
+                                },
+                                "title": "Grounded Predicates",
+                                "type": "array"
+                            }
+                        },
+                        "title": "Atoms",
+                        "type": "object"
+                    },
+                    "actions": [],
+                    "timestamp": "20241220-172146"
+                }
+            ]
+        }
+    ]
+}

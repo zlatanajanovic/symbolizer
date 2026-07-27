@@ -1,0 +1,1 @@
+Goal: orange_block is on top of blue_block; yellow_block is on top of purple_block; blue_block is in column_2; orange_block is in column_2; yellow_block is in column_3; red_block is in column_1; purple_block is in column_3; green_block is in column_4; orange_block has nothing on top; yellow_block has nothing on top; red_block has nothing on top; green_block has nothing on top.

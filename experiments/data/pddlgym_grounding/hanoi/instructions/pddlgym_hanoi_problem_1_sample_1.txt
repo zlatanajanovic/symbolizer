@@ -1,0 +1,1 @@
+Move the discs so that: d3 on peg3, d2 on d3, d1 on d2.

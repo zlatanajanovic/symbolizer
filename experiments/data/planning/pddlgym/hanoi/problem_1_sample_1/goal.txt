@@ -1,0 +1,4 @@
+(:goal (and
+	(on d3 peg3)
+	(on d2 d3)
+	(on d1 d2)))
