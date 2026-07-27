@@ -27,7 +27,6 @@ body {
   font-size: 16px;
   line-height: 1.5;
 }
-main { overflow: clip; }
 a { color: inherit; text-underline-offset: 4px; }
 img { display: block; width: 100%; height: auto; }
 h1, h2, p, figure { margin-top: 0; }
@@ -339,69 +338,15 @@ h1 .title-shift {
   grid-column: 1 / -1;
   margin: 48px 0 0;
 }
-.figure-panel {
-  overflow: hidden;
+.manuscript-figure {
   border: 1px solid var(--line);
   background: var(--white);
   box-shadow: 0 16px 38px rgb(22 22 48 / .08);
 }
-.figure-panel-header {
-  display: flex;
-  min-height: 74px;
-  align-items: center;
-  justify-content: space-between;
-  gap: 28px;
-  padding: 15px 20px 14px;
-  border-bottom: 1px solid var(--line);
-}
-.figure-label {
-  display: block;
-  margin-bottom: 3px;
-  color: var(--blue);
-  font-size: .64rem;
-  font-weight: 900;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-}
-.figure-title {
-  margin: 0;
-  font: 900 1.15rem/1.15 var(--display);
-  letter-spacing: -.025em;
-  text-transform: uppercase;
-}
-.figure-open {
-  flex: 0 0 auto;
-  color: var(--ink);
-  font-size: .7rem;
-  font-weight: 900;
-  letter-spacing: .06em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.figure-open span { margin-left: 5px; color: var(--pink); font-size: .9rem; }
-.figure-open:hover { color: var(--blue); text-decoration: underline; }
-.figure-media {
-  overflow: auto hidden;
-  background: var(--white);
-  scrollbar-color: var(--blue) var(--ice);
-  scrollbar-width: thin;
-}
-.figure-media img {
+.figure-stage { background: #050506; }
+.figure-stage img {
   width: 100%;
   height: auto;
-}
-.teaser-image {
-  display: flex;
-  justify-content: center;
-  padding: 18px 24px 0;
-}
-.teaser-stage img {
-  width: min(100%, 980px);
-  margin: 0 auto;
-}
-.figure-pan-note {
-  display: none;
-  margin: 0;
 }
 figcaption {
   margin: 0;
@@ -774,42 +719,6 @@ code { font-family: var(--mono); }
   .hero-intro { font-size: 1.03rem; }
   .authors { columns: 2; }
   .teaser-stage { margin: 38px 0 0; }
-  .figure-panel-header {
-    display: grid;
-    min-height: 0;
-    gap: 12px;
-    padding: 15px 15px 14px;
-  }
-  .figure-title { font-size: 1rem; }
-  .figure-open {
-    width: max-content;
-    padding-bottom: 2px;
-    border-bottom: 2px solid var(--pink);
-  }
-  .figure-pan-note {
-    display: block;
-    padding: 9px 15px;
-    border-bottom: 1px solid var(--line);
-    color: var(--muted);
-    background: var(--ice);
-    font-size: .67rem;
-    font-weight: 800;
-    letter-spacing: .02em;
-  }
-  .figure-media {
-    overscroll-behavior-x: contain;
-    touch-action: pan-x pan-y;
-  }
-  .teaser-image { padding: 12px 10px 0; }
-  .teaser-stage img { width: 100%; }
-  .grounding-stage .figure-media img {
-    width: 900px;
-    max-width: none;
-  }
-  .rollout-stage .figure-media img {
-    width: 680px;
-    max-width: none;
-  }
   figcaption { padding: 11px 15px 13px; }
 
   .thesis { padding: 48px 18px 60px; }
