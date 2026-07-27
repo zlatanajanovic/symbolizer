@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying paper."
+title: "SYMBOLIZER: Symbolic Model-free Task Planning with VLMs"
+authors:
+  - family-names: Azirar
+    given-names: Sami
+  - family-names: Ajanovic
+    given-names: Zlatan
+  - family-names: Blum
+    given-names: Hermann
+preferred-citation:
+  type: article
+  title: "SYMBOLIZER: Symbolic Model-free Task Planning with VLMs"
+  authors:
+    - family-names: Azirar
+      given-names: Sami
+    - family-names: Ajanovic
+      given-names: Zlatan
+    - family-names: Blum
+      given-names: Hermann
+  year: 2026
+  journal: arXiv
+  doi: 10.48550/arXiv.2604.17830
+  url: https://arxiv.org/abs/2604.17830
