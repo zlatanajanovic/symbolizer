@@ -4,8 +4,8 @@ setup(
     name="symbolizer",
     version="0.1.0",
     description="SYMBOLIZER: VLM-based symbolic grounding and planning via structured JSON output",
-    author="Anonymous",
-    url="https://github.com/anonymous/symbolizer",
+    author="Sami Azirar, Zlatan Ajanovic, Hermann Blum",
+    url="https://github.com/rpl-bonn/symbolizer",
     packages=find_packages(include=["symbolizer*"]),
     install_requires=[
         "python-dotenv",

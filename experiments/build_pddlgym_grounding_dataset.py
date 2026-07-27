@@ -24,7 +24,7 @@ This script assembles that dataset. It has two modes:
                                 PDDLGym simulator renderer, and writes the
                                 dataset JSON. Used once to construct the release.
 
-  (default / --render-only)     Reviewer reproduction. Reads the already-bundled
+  (default / --render-only)     Offline reproduction. Reads the already-bundled
                                 dataset JSON and re-renders every image from the
                                 bundled problem.pddl files. No external tree
                                 needed -- the PDDL + GT are bundled; only the
