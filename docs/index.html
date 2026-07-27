@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -11,163 +11,222 @@
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header">
-      <nav class="nav container" aria-label="Primary navigation">
-        <a class="wordmark" href="#top" aria-label="SYMBOLIZER home">SYMBOLIZER<span>/</span></a>
-        <p class="nav-context">Symbolic model-free task planning <span>with vision-language models</span></p>
+
+    <header class="system-rail">
+      <nav class="rail-nav" aria-label="Primary navigation">
+        <a class="wordmark" href="#top" aria-label="SYMBOLIZER home">
+          <span class="mark" aria-hidden="true">S/</span>
+          <span>SYMBOLIZER</span>
+        </a>
+        <p class="rail-context">Symbolic model-free task planning <span>with vision-language models</span></p>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
-          <span class="sr-only">Toggle navigation</span><span aria-hidden="true">Menu</span>
+          <span class="sr-only">Toggle navigation</span><span aria-hidden="true">MENU</span>
         </button>
         <div class="nav-links" id="nav-links">
-          <a href="#method">Method</a>
-          <a href="#results">Results</a>
-          <a href="#reproduce">Reproduce</a>
-          <a href="#paper">Paper</a>
+          <a href="#top"><span>00</span>Overview</a>
+          <a href="#method"><span>01</span>Method</a>
+          <a href="#results"><span>02</span>Evaluation</a>
+          <a href="#reproduce"><span>03</span>Reproduce</a>
+          <a href="#paper"><span>04</span>Release</a>
+        </div>
+        <div class="rail-status">
+          <p><span class="pulse" aria-hidden="true"></span> Research release · 2026</p>
+          <dl>
+            <div><dt>Mode</dt><dd>Public</dd></div>
+            <div><dt>Assets</dt><dd>Paper · Code · Demo</dd></div>
+          </dl>
         </div>
       </nav>
     </header>
 
-    <main id="main">
-      <section class="hero" id="top" aria-labelledby="hero-title">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <p class="eyebrow"><span>Research release · 2026</span> Visual grounding · systematic search</p>
-            <h1 id="hero-title">From observations to <em>symbols</em> to plans.</h1>
-            <p class="lede">SYMBOLIZER grounds images and natural-language goals into structured symbolic representations, then uses systematic search to plan with a simulator as a black-box transition model.</p>
-            <div class="actions" aria-label="Project links">
-              <a class="button button-primary" href="https://arxiv.org/abs/2604.17830">Read the paper <span aria-hidden="true">↗</span></a>
-              <a class="button button-secondary" href="https://symbolizer-symbolizer.hf.space">Try the demo <span aria-hidden="true">↗</span></a>
-            </div>
-            <p class="fine-print">The interactive demo is hosted separately; availability and access requirements may vary.</p>
+    <main class="workspace" id="main">
+      <section class="overview" id="top" aria-labelledby="hero-title">
+        <header class="workspace-bar">
+          <div>
+            <p class="system-label">Research system / overview</p>
+            <p class="breadcrumb">Visual grounding <span>/</span> symbolic state <span>/</span> systematic search</p>
           </div>
-          <figure class="hero-figure">
-            <div class="figure-label"><span>Figure 01</span><span>System overview</span></div>
-            <img src="assets/symbolizer-teaser.jpg" alt="Illustrated overview showing a scene and language goal grounded into a symbolic state and solved with search.">
-            <figcaption>Paper overview figure: grounded symbols connect observation to planning.</figcaption>
-          </figure>
-          <aside class="hero-index" aria-label="Project overview">
-            <div><span>Input</span><strong>Images + language goals</strong></div>
-            <div><span>Representation</span><strong>First-order relational symbols</strong></div>
-            <div><span>Planning</span><strong>Systematic simulator search</strong></div>
-            <div><span>Release</span><strong>Paper, code + demo</strong></div>
+          <div class="workspace-state"><span>Release status</span><strong><i aria-hidden="true"></i> Online</strong></div>
+        </header>
+
+        <div class="overview-grid">
+          <article class="panel hero-panel">
+            <div class="panel-head">
+              <span>SYS.OVERVIEW</span>
+              <span>FIG_01 / MANUSCRIPT</span>
+            </div>
+            <div class="hero-copy">
+              <p class="eyebrow">SYMBOLIC MODEL-FREE TASK PLANNING</p>
+              <h1 id="hero-title">From observations<br>to <span>symbols</span> to plans.</h1>
+              <p class="lede">SYMBOLIZER grounds images and natural-language goals into structured symbolic representations, then uses systematic search to plan with a simulator as a black-box transition model.</p>
+            </div>
+            <figure class="hero-figure">
+              <img src="assets/symbolizer-teaser.jpg" alt="Illustrated overview showing a scene and language goal grounded into a symbolic state and solved with search.">
+              <figcaption><span>Figure 01 · System overview</span> Paper overview figure: grounded symbols connect observation to planning.</figcaption>
+            </figure>
+          </article>
+
+          <aside class="overview-side" aria-label="Project overview">
+            <section class="panel launch-panel">
+              <div class="panel-head"><span>QUICK ACCESS</span><span>02 TARGETS</span></div>
+              <div class="launch-actions">
+                <a class="action-primary" href="https://arxiv.org/abs/2604.17830"><span>Read the paper</span><b aria-hidden="true">↗</b></a>
+                <a href="https://symbolizer-symbolizer.hf.space"><span>Try the demo</span><b aria-hidden="true">↗</b></a>
+              </div>
+              <p class="fine-print">The interactive demo is hosted separately; availability and access requirements may vary.</p>
+            </section>
+
+            <section class="panel telemetry-panel">
+              <div class="panel-head"><span>SYSTEM PROFILE</span><span>04 FIELDS</span></div>
+              <dl class="telemetry">
+                <div><dt>Input</dt><dd>Images + language goals</dd></div>
+                <div><dt>Representation</dt><dd>First-order relational symbols</dd></div>
+                <div><dt>Planning</dt><dd>Systematic simulator search</dd></div>
+                <div><dt>Release</dt><dd>Paper, code + demo</dd></div>
+              </dl>
+            </section>
+
+            <section class="panel problem-panel">
+              <div class="panel-head"><span>PROBLEM DEFINITION</span><span>P-01</span></div>
+              <h2>Planning from partial observations without hand-authored action models.</h2>
+              <p>Robotic and visual planning settings often provide images or text rather than a ready-made symbolic state and action description. SYMBOLIZER separates the perceptual task of grounding the current situation from the combinatorial task of finding a plan.</p>
+            </section>
           </aside>
         </div>
       </section>
 
-      <section class="section problem" aria-labelledby="problem-title">
-        <div class="container editorial-heading">
-          <div class="section-marker"><span>01</span><p class="section-kicker">The problem</p></div>
-          <h2 id="problem-title">Planning from partial observations without hand-authored action models.</h2>
-          <p>Robotic and visual planning settings often provide images or text rather than a ready-made symbolic state and action description. SYMBOLIZER separates the perceptual task of grounding the current situation from the combinatorial task of finding a plan.</p>
-        </div>
-      </section>
+      <section class="dashboard-section method-section" id="method" aria-labelledby="method-title">
+        <header class="section-bar">
+          <div><span>01</span><p>Method pipeline</p></div>
+          <h2 id="method-title">A structured route from observation to action.</h2>
+          <p>Constrain perception to a symbolic interface, then give long-horizon reasoning to systematic search.</p>
+        </header>
 
-      <section class="section method" id="method" aria-labelledby="method-title">
-        <div class="container">
-          <div class="editorial-heading method-heading">
-            <div class="section-marker"><span>02</span><p class="section-kicker">Method</p></div>
-            <h2 id="method-title">A structured route from observation to action.</h2>
-            <p>Constrain perception to a symbolic interface, then give long-horizon reasoning to systematic search.</p>
-          </div>
-          <div class="method-stage">
-            <ol class="steps">
-              <li><span>01</span><div><h3>Observe</h3><p>Start with an image or textual description and a natural-language goal.</p></div></li>
-              <li><span>02</span><div><h3>Ground</h3><p>Constrain a vision-language model to produce objects, predicates, and goals in a first-order relational form.</p></div></li>
-              <li><span>03</span><div><h3>Search</h3><p>Use the simulator to generate successors and systematically search the induced symbolic state space.</p></div></li>
-            </ol>
-            <figure class="diagram-card">
-              <div class="figure-label"><span>Figure 02</span><span>Grounding pipeline</span></div>
-              <img src="assets/grounding-flow.jpg" alt="Method flowchart from image or text through object, predicate, and goal grounding to symbolic planning.">
-              <figcaption>Grounding flow from the manuscript’s method figure.</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
+        <ol class="workflow">
+          <li>
+            <span class="step-index">01</span>
+            <div><p class="system-label">Input layer</p><h3>Observe</h3><p>Start with an image or textual description and a natural-language goal.</p></div>
+          </li>
+          <li>
+            <span class="step-index">02</span>
+            <div><p class="system-label">Symbol layer</p><h3>Ground</h3><p>Constrain a vision-language model to produce objects, predicates, and goals in a first-order relational form.</p></div>
+          </li>
+          <li>
+            <span class="step-index">03</span>
+            <div><p class="system-label">Planning layer</p><h3>Search</h3><p>Use the simulator to generate successors and systematically search the induced symbolic state space.</p></div>
+          </li>
+        </ol>
 
-      <section class="section transition" aria-labelledby="rollout-title">
-        <div class="container transition-grid">
-          <div class="transition-copy">
-            <div class="section-marker"><span>03</span><p class="section-kicker">Black-box transitions</p></div>
-            <h2 id="rollout-title">Keep the model focused on perception; let search handle long horizons.</h2>
-            <p>The simulator acts as a transition model. SYMBOLIZER can therefore formulate a planning problem from grounded symbols and explore it with classical search, without manually encoding the simulator’s actions or effects.</p>
-          </div>
-          <figure class="media-card">
-            <div class="figure-label"><span>Figure 03</span><span>Planning rollout</span></div>
-            <img src="assets/planning-rollout.jpg" alt="Planning rollout diagram where a simulator expands successor states from an initial symbolic state.">
-            <figcaption>Planning with a simulator: expand successor states without an explicit action specification.</figcaption>
+        <div class="method-grid">
+          <figure class="panel figure-panel">
+            <div class="panel-head"><span>GROUNDING PIPELINE</span><span>FIG_02</span></div>
+            <img src="assets/grounding-flow.jpg" alt="Method flowchart from image or text through object, predicate, and goal grounding to symbolic planning.">
+            <figcaption><span>Figure 02 · Grounding pipeline</span> Grounding flow from the manuscript’s method figure.</figcaption>
           </figure>
-        </div>
-      </section>
-
-      <section class="section results" id="results" aria-labelledby="results-title">
-        <div class="container results-layout">
-          <div class="results-heading">
-            <div class="section-marker"><span>04</span><p class="section-kicker">Supported evaluation</p></div>
-            <h2 id="results-title">Grounding quality and planning performance are evaluated separately.</h2>
-            <p class="results-intro">The accompanying paper evaluates object, predicate, and goal grounding alongside planning success across synthetic, rendered, and benchmark settings. See the paper for the complete protocol, tables, and comparisons.</p>
-          </div>
-          <div class="result-grid">
-            <article class="result-card result-card-featured"><span>Evaluation axis 01</span><h3>Ground symbols</h3><p>Measure object, predicate, and goal extraction against ground truth across custom domains and external benchmarks.</p></article>
-            <article class="result-card"><span>Evaluation axis 02</span><h3>Plan systematically</h3><p>Evaluate whether grounded representations support valid plans through symbolic search and simulator transitions.</p></article>
-            <article class="result-card"><span>Release path</span><h3>Re-run locally</h3><p>The repository ships input data and scripts for offline planning-table re-execution; live VLM evaluations require configured providers.</p></article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section release" id="reproduce" aria-labelledby="reproduce-title">
-        <div class="container">
-          <div class="release-heading">
-            <div class="section-marker"><span>05</span><p class="section-kicker">Code &amp; reproduction</p></div>
-            <h2 id="reproduce-title">Start with the documented offline path.</h2>
-            <p>Install the bundled PDDLGym package and SYMBOLIZER, then re-execute the included symbolic planning tables. Live grounding and some simulator integrations require external credentials or checkouts.</p>
-          </div>
-          <div class="release-grid">
-            <div class="code-card" aria-label="Installation and offline reproduction commands">
-              <p class="card-label">Quick start / shell</p>
-              <pre tabindex="0" aria-label="Installation and offline reproduction commands"><code>python -m pip install -e ./pddlgym
-python -m pip install -e .
-
-python -m experiments.regenerate_all_tables --smoke</code></pre>
-              <p>For the complete setup, simulator matrix, and live-evaluation recipe, use the repository README and <code>experiments/REGENERATE_TABLES.md</code>.</p>
+          <article class="panel transition-panel">
+            <div class="panel-head"><span>BLACK-BOX TRANSITIONS</span><span>SYS.TX</span></div>
+            <div class="transition-copy">
+              <p class="system-label">Separation of concerns</p>
+              <h2>Keep the model focused on perception; let search handle long horizons.</h2>
+              <p>The simulator acts as a transition model. SYMBOLIZER can therefore formulate a planning problem from grounded symbols and explore it with classical search, without manually encoding the simulator’s actions or effects.</p>
             </div>
-            <aside class="repository-card">
-              <p class="card-label">Public release</p>
-              <h3>Code, inputs, and offline scripts.</h3>
-              <div class="repository-pending" data-repository-url="https://github.com/rpl-bonn/symbolizer">
-                <span class="repository-status"><span class="status-dot" aria-hidden="true"></span> Public repository link pending configuration</span>
-                <a class="repository-link" href="#" rel="noopener" hidden>View public repository <span aria-hidden="true">↗</span></a>
-              </div>
-            </aside>
-          </div>
+            <figure>
+              <img src="assets/planning-rollout.jpg" alt="Planning rollout diagram where a simulator expands successor states from an initial symbolic state.">
+              <figcaption><span>Figure 03 · Planning rollout</span> Planning with a simulator: expand successor states without an explicit action specification.</figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
 
-          <div class="paper-card" id="paper" aria-labelledby="paper-title">
+      <section class="dashboard-section evaluation-section" id="results" aria-labelledby="results-title">
+        <header class="section-bar">
+          <div><span>02</span><p>Supported evaluation</p></div>
+          <h2 id="results-title">Grounding quality and planning performance are evaluated separately.</h2>
+          <p>The accompanying paper evaluates object, predicate, and goal grounding alongside planning success across synthetic, rendered, and benchmark settings. See the paper for the complete protocol, tables, and comparisons.</p>
+        </header>
+
+        <div class="evaluation-grid">
+          <article class="metric-card">
+            <div><span>AXIS 01</span><i aria-hidden="true">GROUND</i></div>
+            <h3>Ground symbols</h3>
+            <p>Measure object, predicate, and goal extraction against ground truth across custom domains and external benchmarks.</p>
+            <footer><span>Objects</span><span>Predicates</span><span>Goals</span></footer>
+          </article>
+          <article class="metric-card">
+            <div><span>AXIS 02</span><i aria-hidden="true">PLAN</i></div>
+            <h3>Plan systematically</h3>
+            <p>Evaluate whether grounded representations support valid plans through symbolic search and simulator transitions.</p>
+            <footer><span>Search</span><span>Transitions</span><span>Success</span></footer>
+          </article>
+          <article class="metric-card release-axis">
+            <div><span>RELEASE PATH</span><i aria-hidden="true">LOCAL</i></div>
+            <h3>Re-run locally</h3>
+            <p>The repository ships input data and scripts for offline planning-table re-execution; live VLM evaluations require configured providers.</p>
+            <footer><span>Inputs</span><span>Scripts</span><span>Offline</span></footer>
+          </article>
+        </div>
+      </section>
+
+      <section class="dashboard-section reproduce-section" id="reproduce" aria-labelledby="reproduce-title">
+        <header class="section-bar">
+          <div><span>03</span><p>Code &amp; reproduction</p></div>
+          <h2 id="reproduce-title">Start with the documented offline path.</h2>
+          <p>Install the bundled PDDLGym package and SYMBOLIZER, then re-execute the included symbolic planning tables. Live grounding and some simulator integrations require external credentials or checkouts.</p>
+        </header>
+
+        <div class="release-console">
+          <section class="terminal panel" aria-labelledby="terminal-title">
+            <div class="terminal-bar"><span><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i></span><b id="terminal-title">symbolizer / quick-start.sh</b><em>bash</em></div>
+            <pre tabindex="0" aria-label="Installation and offline reproduction commands"><code><span>$</span> python -m pip install -e ./pddlgym
+<span>$</span> python -m pip install -e .
+
+<span>$</span> python -m experiments.regenerate_all_tables --smoke</code></pre>
+            <p>For the complete setup, simulator matrix, and live-evaluation recipe, use the repository README and <code>experiments/REGENERATE_TABLES.md</code>.</p>
+          </section>
+
+          <aside class="panel repository-card" aria-labelledby="repository-title">
+            <div class="panel-head"><span>PUBLIC RELEASE</span><span>REPO</span></div>
             <div>
-              <p class="card-label">Paper / citation</p>
-              <h2 id="paper-title">SYMBOLIZER: Symbolic Model-free Task Planning with VLMs</h2>
-              <p>Sami Azirar, Zlatan Ajanovic, and Hermann Blum · 2026</p>
+              <p class="system-label">Release contents</p>
+              <h3 id="repository-title">Code, inputs, and offline scripts.</h3>
             </div>
-            <div class="paper-actions">
-              <a class="button button-light" href="https://arxiv.org/abs/2604.17830">arXiv:2604.17830 <span aria-hidden="true">↗</span></a>
-              <a class="text-link" href="https://doi.org/10.48550/arXiv.2604.17830">DOI: 10.48550/arXiv.2604.17830 <span aria-hidden="true">↗</span></a>
+            <div class="repository-pending" data-repository-url="https://github.com/rpl-bonn/symbolizer">
+              <span class="repository-status"><span class="status-dot" aria-hidden="true"></span> Public repository link pending configuration</span>
+              <a class="repository-link" href="#" rel="noopener" hidden>View public repository <span aria-hidden="true">↗</span></a>
             </div>
+          </aside>
+        </div>
+
+        <article class="paper-panel" id="paper" aria-labelledby="paper-title">
+          <div class="paper-index">
+            <span>04</span>
+            <p>Paper / citation</p>
           </div>
-        </div>
+          <div class="paper-record">
+            <p class="system-label">Release record / 2026</p>
+            <h2 id="paper-title">SYMBOLIZER: Symbolic Model-free Task Planning with VLMs</h2>
+            <p>Sami Azirar, Zlatan Ajanovic, and Hermann Blum · 2026</p>
+          </div>
+          <div class="paper-actions">
+            <a href="https://arxiv.org/abs/2604.17830"><span>arXiv:2604.17830</span><b aria-hidden="true">↗</b></a>
+            <a href="https://doi.org/10.48550/arXiv.2604.17830"><span>DOI: 10.48550/arXiv.2604.17830</span><b aria-hidden="true">↗</b></a>
+          </div>
+        </article>
       </section>
 
-      <section class="section limitations" aria-labelledby="limits-title">
-        <div class="container editorial-heading">
-          <div class="section-marker"><span>06</span><p class="section-kicker">Scope &amp; limitations</p></div>
+      <section class="scope-panel" aria-labelledby="limits-title">
+        <div>
+          <p class="system-label">System note / Scope &amp; limitations</p>
           <h2 id="limits-title">A research system with deliberately explicit boundaries.</h2>
-          <p>Grounding quality can limit planning success, and live VLM results may vary between runs. The public code release contains reproduction inputs and scripts, not precomputed result files. Docker-backed runtime checks may require more memory than constrained local hosts provide.</p>
         </div>
+        <p>Grounding quality can limit planning success, and live VLM results may vary between runs. The public code release contains reproduction inputs and scripts, not precomputed result files. Docker-backed runtime checks may require more memory than constrained local hosts provide.</p>
       </section>
-    </main>
 
-    <footer class="site-footer">
-      <div class="container footer-grid">
-        <div><a class="wordmark" href="#top">SYMBOLIZER<span>/</span></a><p>Symbolic model-free task planning with vision-language models.</p></div>
+      <footer class="site-footer">
+        <a class="wordmark" href="#top"><span class="mark" aria-hidden="true">S/</span><span>SYMBOLIZER</span></a>
+        <p>Symbolic model-free task planning with vision-language models.</p>
         <div><p>© 2026 Sami Azirar, Zlatan Ajanovic, Hermann Blum</p><p>Code released under the <a href="LICENSE">MIT License</a>.</p></div>
-      </div>
-    </footer>
+      </footer>
+    </main>
   </body>
 </html>
