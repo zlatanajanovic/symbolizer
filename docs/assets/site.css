@@ -343,7 +343,7 @@ h1 .title-shift {
   background: var(--white);
   box-shadow: 0 16px 38px rgb(22 22 48 / .08);
 }
-.figure-stage { background: #050506; }
+.figure-stage { background: var(--white); }
 .figure-stage img {
   width: 100%;
   height: auto;
