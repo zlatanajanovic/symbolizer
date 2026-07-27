@@ -72,8 +72,18 @@
           <p class="demo-note">The interactive demo is hosted separately; availability and access requirements may vary.</p>
         </div>
 
-        <figure class="teaser-stage">
-          <div class="teaser-image">
+        <figure class="figure-panel teaser-stage">
+          <header class="figure-panel-header">
+            <div>
+              <span class="figure-label">Figure 01 · System overview</span>
+              <p class="figure-title">From observation to a searchable plan</p>
+            </div>
+            <a class="figure-open" href="assets/symbolizer-teaser-transparent.png" target="_blank" rel="noopener">
+              Open full resolution <span aria-hidden="true">↗</span>
+            </a>
+          </header>
+          <p class="figure-pan-note">Overview shown to fit · open the full-resolution figure for fine detail</p>
+          <div class="figure-media teaser-image" role="region" aria-label="System overview figure" tabindex="0">
             <img src="assets/symbolizer-teaser-transparent.png" alt="Illustrated overview showing a scene and language goal grounded into a symbolic state and solved with search.">
           </div>
           <figcaption>Paper overview: grounded symbols connect observation to planning.</figcaption>
@@ -118,8 +128,20 @@
           </li>
         </ol>
 
-        <figure class="grounding-stage">
-          <img src="assets/grounding-flow-transparent.png" alt="Method flowchart from image or text through object, predicate, and goal grounding to symbolic planning.">
+        <figure class="figure-panel grounding-stage">
+          <header class="figure-panel-header">
+            <div>
+              <span class="figure-label">Figure 02 · Symbolic grounding</span>
+              <p class="figure-title">Build the planning interface</p>
+            </div>
+            <a class="figure-open" href="assets/grounding-flow-transparent.png" target="_blank" rel="noopener">
+              Open full resolution <span aria-hidden="true">↗</span>
+            </a>
+          </header>
+          <p class="figure-pan-note">Swipe horizontally to inspect the full figure →</p>
+          <div class="figure-media" role="region" aria-label="Scrollable symbolic grounding figure" tabindex="0">
+            <img src="assets/grounding-flow-transparent.png" alt="Method flowchart from image or text through object, predicate, and goal grounding to symbolic planning.">
+          </div>
           <figcaption>Grounding flow from the manuscript’s method figure.</figcaption>
         </figure>
       </section>
@@ -133,8 +155,20 @@
           <p>The simulator acts as a transition model. SYMBOLIZER can therefore formulate a planning problem from grounded symbols and explore it with classical search, without manually encoding the simulator’s actions or effects.</p>
           <p>Grounding quality and planning performance are evaluated separately: object, predicate, and goal extraction are compared with ground truth across custom domains and external benchmarks, while planning evaluation asks whether those representations support valid plans through symbolic search and simulator transitions.</p>
         </div>
-        <figure class="rollout-stage">
-          <img src="assets/planning-rollout-transparent.png" alt="Planning rollout diagram where a simulator expands successor states from an initial symbolic state.">
+        <figure class="figure-panel rollout-stage">
+          <header class="figure-panel-header">
+            <div>
+              <span class="figure-label">Figure 03 · Simulator rollout</span>
+              <p class="figure-title">Search through black-box transitions</p>
+            </div>
+            <a class="figure-open" href="assets/planning-rollout-transparent.png" target="_blank" rel="noopener">
+              Open full resolution <span aria-hidden="true">↗</span>
+            </a>
+          </header>
+          <p class="figure-pan-note">Swipe horizontally to inspect the full figure →</p>
+          <div class="figure-media" role="region" aria-label="Scrollable simulator rollout figure" tabindex="0">
+            <img src="assets/planning-rollout-transparent.png" alt="Planning rollout diagram where a simulator expands successor states from an initial symbolic state.">
+          </div>
           <figcaption>Planning rollout: expand successor states without an explicit action specification.</figcaption>
         </figure>
       </section>
