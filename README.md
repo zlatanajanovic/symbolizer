@@ -99,19 +99,15 @@ python examples/run_example.py --dataset real --domain_name blocksworld_real
 
 ### Web Demo
 
-An interactive demo is available at: **<https://symbolizer-symbolizer.hf.space>**
-(also reachable from the [HuggingFace Space page](https://huggingface.co/spaces/Symbolizer/SYMBOLIZER)).
+The project provides an interactive demo at
+**<https://symbolizer-symbolizer.hf.space>** (also reachable from the
+[HuggingFace Space page](https://huggingface.co/spaces/Symbolizer/SYMBOLIZER)).
+Demo availability and access requirements may vary.
 
-**Access password:** `[REDACTED_FOR_PUBLIC_RELEASE]`
-
-> If the password screen reappears right after you submit the password, your
-> browser is blocking the login cookie inside the embedded Space preview. Open
-> the demo at its direct URL above (a normal full browser tab) and log in there.
-
-Log in with the password, then upload a Blocks World or Tower of Hanoi image, and the
-system will ground it symbolically, visualize the state, and plan a solution with A\*
-search. A grounding model is built in, so no API key is required; you can also supply
-your own Gemini / OpenAI / Vertex AI key in the UI.
+When available, the demo accepts a Blocks World or Tower of Hanoi image and
+grounds it symbolically, visualizes the state, and plans a solution with A\*
+search. The interface can also be configured with a Gemini, OpenAI, or Vertex
+AI key.
 
 ## Reproducing Paper Results
 
