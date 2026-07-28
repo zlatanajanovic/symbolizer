@@ -264,14 +264,10 @@ button:focus-visible,
 .hero-title-block { grid-column: 1 / 9; }
 h1 {
   margin: 0;
-  font: 900 clamp(5.7rem, 9.6vw, 8.7rem)/.74 var(--display);
+  font: 900 clamp(4.8rem, 7.7vw, 7rem)/.82 var(--display);
   letter-spacing: -.085em;
+  white-space: nowrap;
   text-transform: uppercase;
-}
-h1 span { display: block; }
-h1 .title-shift {
-  margin-left: .64em;
-  color: var(--blue);
 }
 .hero-deck {
   max-width: 610px;
@@ -712,8 +708,7 @@ code { font-family: var(--mono); }
     padding-bottom: 48px;
     background: var(--paper);
   }
-  h1 { font-size: clamp(3.8rem, 21vw, 5.1rem); line-height: .78; }
-  h1 .title-shift { margin-left: .16em; }
+  h1 { font-size: clamp(2.8rem, 14.5vw, 4rem); line-height: .86; }
   .hero-deck { margin-top: 28px; padding-left: 15px; border-left-width: 4px; font-size: 1.08rem; }
   .hero-meta { margin: 40px 0 0; }
   .hero-intro { font-size: 1.03rem; }
