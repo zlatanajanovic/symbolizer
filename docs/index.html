@@ -26,7 +26,6 @@
         <div class="nav-links" id="nav-links">
           <a href="#overview">Overview</a>
           <a href="#method">Method</a>
-          <a href="#reproduce">Reproduce</a>
           <a href="#paper">Paper</a>
         </div>
       </nav>
@@ -83,11 +82,7 @@
       <section class="thesis" id="overview" aria-labelledby="overview-title">
         <p class="chapter-label">The research thesis</p>
         <div class="thesis-display">
-          <h2 id="overview-title">
-            <span>Observe.</span>
-            <span>Symbolize.</span>
-            <span>Search.</span>
-          </h2>
+          <h2 id="overview-title">Ground what the world contains. Express what the task requires. Let systematic search find the route between them.</h2>
           <p>SYMBOLIZER grounds images and natural-language goals into structured symbolic representations, then uses systematic search to plan with a simulator as a black-box transition model.</p>
         </div>
         <div class="thesis-detail">
@@ -99,22 +94,22 @@
       <section class="method" id="method" aria-labelledby="method-title">
         <header class="method-header">
           <p class="chapter-label">The symbolic interface</p>
-          <h2 id="method-title">Turn perception into something search can use.</h2>
-          <p>Constrain perception to a symbolic interface, then give long-horizon reasoning to systematic search.</p>
+          <h2 id="method-title">Ground observations and natural-language goals into symbolic representations for planning.</h2>
+          <p>SYMBOLIZER separates visual-language grounding from planning: it infers objects, predicates, and goals, then searches the induced symbolic state space through simulator transitions.</p>
         </header>
 
         <ol class="method-steps">
           <li>
             <span class="step-number">01</span>
-            <div><strong>Observe</strong><p>Start with an image or textual description and a natural-language goal.</p></div>
+            <div><strong>Object grounding</strong><p>Infer the objects in an image or textual observation from provided examples.</p></div>
           </li>
           <li>
             <span class="step-number">02</span>
-            <div><strong>Ground</strong><p>Constrain a vision-language model to produce objects, predicates, and goals in a first-order relational form.</p></div>
+            <div><strong>Predicate and goal grounding</strong><p>Express relations and task requirements as symbolic predicates over those objects.</p></div>
           </li>
           <li>
             <span class="step-number">03</span>
-            <div><strong>Search</strong><p>Use the simulator to generate successors and systematically search the induced symbolic state space.</p></div>
+            <div><strong>Symbolic planning</strong><p>Use the simulator as a transition model while systematic search explores successor states.</p></div>
           </li>
         </ol>
 
@@ -128,8 +123,8 @@
 
       <section class="rollout" aria-labelledby="rollout-title">
         <div class="rollout-heading">
-          <p class="chapter-label">Black-box transitions</p>
-          <h2 id="rollout-title">The simulator moves. The symbols keep score.</h2>
+          <p class="chapter-label">Planning with black-box transitions</p>
+          <h2 id="rollout-title">Search grounded symbolic states through simulator transitions.</h2>
         </div>
         <div class="rollout-copy">
           <p>The simulator acts as a transition model. SYMBOLIZER can therefore formulate a planning problem from grounded symbols and explore it with classical search, without manually encoding the simulator’s actions or effects.</p>
@@ -141,21 +136,6 @@
           </div>
           <figcaption>Planning rollout: expand successor states without an explicit action specification.</figcaption>
         </figure>
-      </section>
-
-      <section class="release" id="reproduce" aria-labelledby="reproduce-title">
-        <div class="release-lead">
-          <p class="release-kicker">Code-only public release</p>
-          <h2 id="reproduce-title">Run the offline path.</h2>
-          <p>The repository ships input data and scripts for offline planning-table re-execution; live VLM evaluations require configured providers. Install the bundled PDDLGym package and SYMBOLIZER, then re-execute the included symbolic planning tables.</p>
-        </div>
-        <div class="command-shell">
-          <div class="command-label"><span>Terminal</span><span>No API · No cost</span></div>
-          <pre tabindex="0" aria-label="Installation and offline reproduction commands"><code>python -m pip install -e ./pddlgym
-python -m pip install -e .
-python -m experiments.regenerate_all_tables --smoke</code></pre>
-          <p>For the complete setup, simulator matrix, and live-evaluation recipe, use the repository README and <code>experiments/REGENERATE_TABLES.md</code>. Live grounding and some simulator integrations require external credentials or checkouts.</p>
-        </div>
       </section>
 
       <section class="paper" id="paper" aria-labelledby="paper-title">
@@ -174,10 +154,6 @@ python -m experiments.regenerate_all_tables --smoke</code></pre>
         </div>
       </section>
 
-      <section class="limitations" aria-labelledby="limits-title">
-        <h2 id="limits-title">Scope and limitations</h2>
-        <p>Grounding quality can limit planning success, and live VLM results may vary between runs. The public code release contains reproduction inputs and scripts, not precomputed result files. Docker-backed runtime checks may require more memory than constrained local hosts provide.</p>
-      </section>
     </main>
 
     <footer class="site-footer">
