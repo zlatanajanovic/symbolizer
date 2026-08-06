@@ -268,7 +268,7 @@ and `GOOGLE_APPLICATION_CREDENTIALS` (path to a service-account JSON).
 | Household | ViPlan | Symbolic |
 
 # Cite 
-If you found SBMP relevant for your research, please cite it as:
+If you found SYMBOLIZER relevant for your research, please cite it as:
 
 ```bibtex
 @article{azirar2026symbolizer,
