@@ -266,3 +266,17 @@ and `GOOGLE_APPLICATION_CREDENTIALS` (path to a service-account JSON).
 | Kitchen-Worlds | Custom | Household tasks |
 | Blocksworld | ViPlan | Photorealistic (Blender) |
 | Household | ViPlan | Symbolic |
+
+# Cite 
+If you found SBMP relevant for your research, please cite it as:
+
+```bibtex
+@article{azirar2026symbolizer,
+  title   = {{SYMBOLIZER}: Symbolic Model-free Task Planning with {VLMs}},
+  author  = {Azirar, Sami and Ajanovic, Zlatan and Blum, Hermann},
+  journal = {IEEE Robotics and Automation Letters},
+  year    = {2026},
+  url     = {https://rpl-bonn.github.io/symbolizer/},
+  note    = {Accepted for publication},
+}
+```
